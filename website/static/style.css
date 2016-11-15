@@ -1,0 +1,68 @@
+body, div, h1, h2, h3, h4, h5, h6, p, ul, ol, li, dl, dt, dd, img, form, fieldset, input, textarea, blockquote {
+  margin: 0; padding: 0; border: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    /*font-family: 'Droid Sans', sans-serif;*/
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.container {
+  width: 960px; 
+  margin: 50px auto;
+  background: #d3d3d3;
+}
+
+.content {
+  width: 100%;
+  float: left;
+  margin: 0 auto;
+  background: #d3d3d3;
+}
+
+.logo {
+  margin: 20px auto 0 auto; 
+  position: relative;
+  text-align: center;
+}
+
+.categoryList {
+  text-align: center;
+  list-style-type: none;
+  margin: 25px auto;
+  max-width: 95%;
+}
+
+.categoryItem { /* .categoryList li */
+  padding: 8px; 
+  background: #eee; 
+  text-align: center;
+  display:inline-block;
+  margin: 0 14px 14px 14px;
+  position: relative;
+}
+
+.categoryItem a {
+  text-decoration: none;
+  color: #000;
+  position:relative;
+}
+
+.ProductList {
+  position: relative;
+  margin: 1em 0;
+  min-width: 600px;
+}
+.ProductList th, td {
+  text-align: left;
+}
+.ProductList a, a:visited {
+  text-decoration: none;
+  color: #000;
+}

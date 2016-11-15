@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% if title %}
+      <title>{{ title.upper() }} - name_of_site</title>
+      {% else %}
+      <title>Welcome to the testsite</title>
+    {% endif %}
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans|Source+Sans+Pro" rel="stylesheet"> 
+    <link href="/static/style.css" rel="stylesheet" type="text/css" media="screen" />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="logo">Hello World!</h1>
+        <ul class="navbar-list">
+          <li class="navbar-item"><a href="/">Home</a></li>
+          <li class="navbar-item"><a href="/">About</a></li>
+        </ul>
+
+      <div class="header">
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <ul>
+          {% for message in messages %}
+            <li>{{ message }} </li>
+          {% endfor %}
+          </ul>
+        {% endif %}
+      {% endwith %}
+      </div>
+
+      <div class="content">
+        {% block content %}
+        {% endblock %}
+      </div>
+    </div>
+  </body}
+</html>

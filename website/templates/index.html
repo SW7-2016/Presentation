@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2> Categories: </h2>
+
+  <ul class="categoryList">
+  {% for i in range(3) %}
+  {% for cname in clist %}
+    <li class="categoryItem"><a href="{{ url_for('list_items', cname=cname) }}">
+    <img src="/static/placeholder.jpg" alt="{{ cname }}"/>
+    <p>{{ cname }}</p>
+    </a></li>
+  {% endfor %}
+  {% endfor %}
+  </ul>
+{% endblock %}

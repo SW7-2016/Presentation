@@ -1,0 +1,11 @@
+1. Start by setting up virtual environment inside Presentation folder:
+  Presentation]$: virtualenv flask
+2. Enter the virtualenv
+  Linux: source flask/bin/activate
+  Windows: flask\Scripts\activate
+3. Install python packages from requirements.txt, when virtualenv is activated.
+  pip install -r requirements.txt
+4. Run flask application:
+  python run.py
+  
+

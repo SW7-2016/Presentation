@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1> Category: {{ category }} </h1>
+  <center>
+  <table class="ProductList">
+  	<tr>
+  	  <th>IMG</th>
+  	  <th>Name</th>
+  	  <th>Score</th>
+  	</tr>
+  	{% for product in products %}
+  	<tr>
+  	  <td><img src="/static/placeholder.jpg" alt="{{ product.name }}"  height="42" width="42"/></td>
+  	  <td><a href="{{ url_for('show_product', cname=category, pid=product.ID) }}">
+      {{ product.name }}</a></td>
+      
+  	  <td>{{ product.score }}</td>
+      
+  	</tr>
+  	{% endfor %}
+  </table>
+  </center>
+
+{% endblock %}
