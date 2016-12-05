@@ -11,7 +11,7 @@
   	{% for product in products %}
   	<tr>
   	  <td><img src="/static/placeholder.jpg" alt="{{ product.name }}"  height="42" width="42"/></td>
-  	  <td><a href="{{ url_for('show_product', cname=category, pid=product.ID) }}">
+  	  <td><a href="{{ url_for('show_product', cname=category, pid=product.ProductID) }}">
       {{ product.name }}</a></td>
       
   	  <td>{{ product.score }}</td>
