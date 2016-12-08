@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2> Category: {{ category }} </h2>
+  <h3> ID: {{ product.ProductID }}</h3>
+<center>
+{%  if category == "cpu" %}
+    <table class="Specifications">
+        <tr>
+            <th>Model1:</th>
+            <td>{{  product.model }}</td>
+        </tr>
+        <tr>
+            <th>random:</th>
+            <td>{{ product.name }}</td>
+        </tr>
+  </table>
+{%  elif category == "Gpu" %}
+    <table class="Specifications">
+        <tr>
+            <th>Model:</th>
+            <td>{{  product.model }}</td>
+        </tr>
+        <tr>
+            <th>Ram:</th>
+            <td>{{ product.memSize }}</td>
+        </tr>
+    </table>
+{%  endif %}
+</center>
+
+{% endblock %}

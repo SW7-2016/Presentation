@@ -1,7 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
-  <h1> Category: {{ category }} </h1>
-  <center>
+<center>
+    <form action="">
+        Number of products:
+        <input type="text" name="show">
+        <input type="submit" value="Submit">
+    </form>
+</center>
+  <h2> Category: {{ category }} </h2>
+<center>
   <table class="ProductList">
   	<tr>
   	  <th>IMG</th>
@@ -11,7 +18,7 @@
   	{% for product in products %}
   	<tr>
   	  <td><img src="/static/placeholder.jpg" alt="{{ product.name }}"  height="42" width="42"/></td>
-  	  <td><a href="{{ url_for('show_product', cname=category, pid=product.ProductID) }}">
+  	  <td><a href="{{ url_for('show_product', category=category.lower(), pid=product.ProductID) }}">
       {{ product.name }}</a></td>
       
   	  <td>{{ product.score }}</td>
@@ -19,6 +26,6 @@
   	</tr>
   	{% endfor %}
   </table>
-  </center>
+</center>
 
 {% endblock %}

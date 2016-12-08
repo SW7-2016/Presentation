@@ -35,7 +35,7 @@ class Con(Base):
     review = relationship('Review')
 
 # t_cpu
-Cpu = Table(
+cpu = Table(
     'cpu', metadata,
     Column('ProductID', ForeignKey('product.ProductID'), nullable=False, index=True),
     Column('model', Text),
@@ -58,8 +58,8 @@ class Crawlprogres(Base):
     Queue = Column(String)
     date = Column(DateTime, nullable=False, server_default=text("CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"))
 
-
-t_gpu = Table(
+# t_gpu
+gpu = Table(
     'gpu', metadata,
     Column('ProductID', ForeignKey('product.ProductID'), nullable=False, index=True),
     Column('processorManufacturer', Text),
