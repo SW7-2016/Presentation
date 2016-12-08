@@ -1,31 +1,78 @@
 {% extends "base.html" %}
 {% block content %}
   <h2> Category: {{ category }} </h2>
-  <h3> ID: {{ product.ProductID }}</h3>
+  <h3>{{ product.name }}</h3>
 <center>
-{%  if category == "cpu" %}
-    <table class="Specifications">
+<img src="/static/placeholder.jpg" alt="{{ product.name }}"  height="75" width="75"/>
+{%  if category == "Cpu" %}
+    <table class="specifications">
         <tr>
-            <th>Model1:</th>
-            <td>{{  product.model }}</td>
+            <th>Series:</th>
+            <td>{{ product.cpu_series }}</td>
         </tr>
-        <tr>
-            <th>random:</th>
-            <td>{{ product.name }}</td>
-        </tr>
-  </table>
-{%  elif category == "Gpu" %}
-    <table class="Specifications">
         <tr>
             <th>Model:</th>
             <td>{{  product.model }}</td>
         </tr>
         <tr>
-            <th>Ram:</th>
-            <td>{{ product.memSize }}</td>
+            <th>Clock:</th>
+            <td>{{ product.clock }}</td>
+        </tr>
+        <tr>
+            <th>Max Turbo:</th>
+            <td>{{ product.max_turbo }}</td>
+        </tr>
+        <tr>
+            <th>Int. GPU:</th>
+            <td>{{ product.integrated_gpu }}</td>
+        </tr>
+        <tr>
+            <th>Physical Cores:</th>
+            <td>{{ product.physical_cores }}</td>
+        </tr>
+        <tr>
+            <th>Logical Cores:</th>
+            <td>{{ product.logical_cores }}</td>
+        </tr>
+    </table>
+{%  elif category == "Gpu" %}
+    <table class="specifications">
+        <tr>
+            <th>Proc. Manufacturer:</th>
+            <td>{{  product.processor_manufacturer }}</td>
+        </tr>
+        <tr>
+            <th>Manufacturer:</th>
+            <td>{{  product.manufacturer }}</td>
+        </tr>
+        <tr>
+            <th>Model:</th>
+            <td>{{  product.model }}</td>
+        </tr>
+        <tr>
+            <th>Graphic Processor:</th>
+            <td>{{ product.graphic_processor }}</td>
+        </tr>
+        <tr>
+            <th>Memory:</th>
+            <td>{{ product.mem_size }}</td>
         </tr>
     </table>
 {%  endif %}
+
+    <table class="scores" border="1px">
+        <tr>
+            <td>Super: {{ product.superscore }}</td>
+            <table >
+                <td>
+                    <td>Avg. Critic: {{ product.avg_critic_score }}</td>
+                </td>
+                <td>
+                    <td>Avg. User: {{ product.avg_user_score }}</td>
+                </td>
+            </table>
+        </tr>
+    </table>
 </center>
 
 {% endblock %}

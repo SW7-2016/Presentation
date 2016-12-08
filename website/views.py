@@ -1,11 +1,11 @@
+from __future__ import print_function
 from flask import render_template, request, abort
 from website import app, models, db
-from flask_sqlalchemy import SQLAlchemy
 import sys
 
 
-from .models import Product, cpu, gpu
-cat_list = ["cpu", "gpu"]
+from .models import Cpu, Gpu, Review
+cat_list = ["Cpu", "Gpu"]
 
 
 @app.route('/')
@@ -18,26 +18,23 @@ def index():
 def list_items(category):
 
     no_to_show = request.args.get('show', 10, type=int)
-    # Needs a try around it, so that it returns an error/404 if the cname does
-    # not match a model/class
-    # Gets the class module depending on the category chosen.
     try:
-        cat_que = getattr(sys.modules[__name__], category)
-        products = db.session.query(Product).join(cat_que).limit(no_to_show).all()
+        # Gets the class module depending on the category chosen.
+        cat_que = getattr(sys.modules[__name__], category.title())
+        products = db.session.query(cat_que).limit(no_to_show).all()
         return render_template('list_products.html', products=products, category
-                               =category.title())
+                               =category)
     except Exception as e:
+        print(str(e), file=sys.stderr)
         abort(404)
 
 
 @app.route('/category/<category>/<pid>')
 def show_product(category, pid):
-    # return "Hello " + category + "    id: " + pid
-    # return render_template('single_product.html', category=category, pid=pid, product=product)
 
-    cat_que = getattr(sys.modules[__name__], category)
-    single_product = db.session.query(Product).join(cat_que).filter(Product.ProductID == pid, cpu.c.ProductID == pid).all()
-    return render_template('single_product.html', category=category.lower(), product=single_product[0])
+    cat_que = getattr(sys.modules[__name__], category.title())
+    single_product = db.session.query(cat_que).filter(cat_que.id == pid).first()
+    return render_template('single_product.html', category=category.title(), product=single_product)
 
 
 @app.errorhandler(404)
