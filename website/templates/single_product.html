@@ -69,6 +69,15 @@
             <td>Avg. User: {{ product.avg_user_score }}</td>
         </tr>
     </table>
+    <table class="review_dates">
+      <tr>
+        <th>Newest review date:</th>
+        <td>{{ product.newest_review_date }}</td>
+      </tr>
+      <tr>
+        <th>Oldest review date:</th>
+        <td>{{ product.oldest_review_date }}</td>
+      </tr>
 </center>
 
 {% endblock %}

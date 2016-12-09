@@ -67,7 +67,16 @@ body {
   color: #000;
 }
 
-/* single_product.html score tables */
+/* single_product.html specification table */
+.specifications th {
+  text-align: left;
+}
+
+.specifications td {
+  text-align: left;
+}
+
+/* single_product.html score table */
 .scores {
   border-spacing: 0.5rem;
   border-collapse: collapse;
