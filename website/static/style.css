@@ -66,3 +66,21 @@ body {
   text-decoration: none;
   color: #000;
 }
+
+/* single_product.html score tables */
+.scores {
+  border-spacing: 0.5rem;
+  border-collapse: collapse;
+}
+
+.scores tr {
+  text-align: center
+}
+
+.scores tr [colspan="2"] {
+  text-align: center;
+}
+
+.scores td {
+  padding: 5px;
+}

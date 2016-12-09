@@ -62,15 +62,11 @@
 
     <table class="scores" border="1px">
         <tr>
-            <td>Super: {{ product.superscore }}</td>
-            <table >
-                <td>
-                    <td>Avg. Critic: {{ product.avg_critic_score }}</td>
-                </td>
-                <td>
-                    <td>Avg. User: {{ product.avg_user_score }}</td>
-                </td>
-            </table>
+            <td colspan="2">Super: {{ product.superscore }}</td>
+        </tr>
+        <tr>
+            <td>Avg. Critic: {{ product.avg_critic_score }}</td>
+            <td>Avg. User: {{ product.avg_user_score }}</td>
         </tr>
     </table>
 </center>
