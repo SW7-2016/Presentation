@@ -17,13 +17,17 @@ def index():
 @app.route('/category/<category>')
 def list_items(category):
 
-    no_to_show = request.args.get('show', 10, type=int)
+    showing = request.args.get('show', 10)
+    orderby = request.args.get('orderby', "superscore")
+    order = request.args.get('order', "desc")
+    order_direction = getattr(db, order)
     try:
         # Gets the class module depending on the category chosen.
         cat_que = getattr(sys.modules[__name__], category.title())
-        products = db.session.query(cat_que).limit(no_to_show).all()
+        products = db.session.query(cat_que).order_by(order_direction(orderby)).limit(showing).all()
         return render_template('list_products.html', products=products, category
-                               =category)
+                               =category, show=showing, orderby=orderby,
+                               order=order)
     except Exception as e:
         print(str(e), file=sys.stderr)
         abort(404)

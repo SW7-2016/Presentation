@@ -3,11 +3,28 @@
 <center>
     <form action="">
         Number of products:
-        <input type="text" name="show">
-        <input type="submit" value="Submit">
+        <select name="show" onchange="this.form.submit();">
+          <option value="10" {% if show == "10" %} selected="selected"{% endif %}>10</option>
+          <option value="20" {% if show == "20" %} selected="selected"{% endif %}>20</option>
+          <option value="50" {% if show == "50" %} selected="selected"{% endif %}>50</option>
+          <option value="100" {% if show == "100" %} selected="selected"{% endif %}>100</option>
+        </select>
+
+        <select name="orderby" onchange="this.form.submit();">
+          <option value="superscore" {% if orderby == "superscore" %} selected="selected"{% endif %}>Super Score</option>
+          <option value="name" {% if orderby =="name" %} selected="selected"{% endif %}>Name</option>
+          <option value="newest_review_date" {% if orderby == "newest_review_date" %} selected="selected"{% endif %}>Newest Review Date</option>
+        </select>
+
+        <label>
+          <input type="radio" name="order" value="desc" onChange="this.form.submit();" {% if order  == "desc" %}checked="checked"{% endif %}/> Desc
+        </label>
+        <label>
+          <input type="radio" name="order" value="asc" onChange="this.form.submit();" {% if order == "asc" %}checked="checked"{% endif %}/> Asc
+        </label>
     </form>
 </center>
-  <h2> Category: {{ category }} </h2>
+  <h2> Category: {{ category.title() }} </h2>
 <center>
   <table class="ProductList">
   	<tr>
