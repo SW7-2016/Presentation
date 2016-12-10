@@ -1,38 +1,44 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     {% if title %}
-      <title>{{ title.upper() }} - name_of_site</title>
-      {% else %}
-      <title>Welcome to the testsite</title>
+        <title>{{ title.upper() }} - name_of_site</title>
+    {% else %}
+        <title>Welcome to the testsite</title>
     {% endif %}
-    <link href="https://fonts.googleapis.com/css?family=Droid+Sans|Source+Sans+Pro" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans|Source+Sans+Pro" rel="stylesheet">
+    <link href="/static/bootstrap.min.css" rel="stylesheet" type="text/css" media="screen" />
     <link href="/static/style.css" rel="stylesheet" type="text/css" media="screen" />
-  </head>
-  <body>
-    <div class="container">
-      <h1 class="logo">Hello World!</h1>
-        <ul class="navbar-list">
-          <li class="navbar-item"><a href="/">Home</a></li>
-          <li class="navbar-item"><a href="/">About</a></li>
-        </ul>
+</head>
+<body class="container margin-topbot">
+<div class="a-background">
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <h1 class="title">Hello World!</h1>
+        </div>
+        <div class="col-xs-3 col-xs-offset-5">
+            <ul class="nav">
+                <li class="nav-item"><a href="/">Home</a></li>
+                <li class="nav-item"><a href="/">About</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="header">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                        <li>{{ message }} </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+    </div>
 
-      <div class="header">
-      {% with messages = get_flashed_messages() %}
-        {% if messages %}
-          <ul>
-          {% for message in messages %}
-            <li>{{ message }} </li>
-          {% endfor %}
-          </ul>
-        {% endif %}
-      {% endwith %}
-      </div>
-
-      <div class="content">
+    <div class="content container  margin-topbot">
         {% block content %}
         {% endblock %}
-      </div>
     </div>
-  </body}
+</div>
+</body>
 </html>

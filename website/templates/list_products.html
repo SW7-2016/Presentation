@@ -1,48 +1,47 @@
 {% extends "base.html" %}
 {% block content %}
-<center>
-    <form action="">
-        # of products:
-        <select name="show" onchange="this.form.submit();">
-          <option value="10" {% if show == "10" %} selected="selected"{% endif %}>10</option>
-          <option value="20" {% if show == "20" %} selected="selected"{% endif %}>20</option>
-          <option value="50" {% if show == "50" %} selected="selected"{% endif %}>50</option>
-          <option value="100" {% if show == "100" %} selected="selected"{% endif %}>100</option>
-        </select>
-        Order by:
-        <select name="orderby" onchange="this.form.submit();">
-          <option value="superscore" {% if orderby == "superscore" %} selected="selected"{% endif %}>Super Score</option>
-          <option value="name" {% if orderby =="name" %} selected="selected"{% endif %}>Name</option>
-          <option value="newest_review_date" {% if orderby == "newest_review_date" %} selected="selected"{% endif %}>Newest Review Date</option>
-        </select>
-        Order:
-        <label>
-          <input type="radio" name="order" value="desc" onChange="this.form.submit();" {% if order  == "desc" %}checked="checked"{% endif %}/> Desc
-        </label>
-        <label>
-          <input type="radio" name="order" value="asc" onChange="this.form.submit();" {% if order == "asc" %}checked="checked"{% endif %}/> Asc
-        </label>
-    </form>
-</center>
-  <h2> Category: {{ category.title() }} </h2>
-<center>
-  <table class="ProductList">
-  	<tr>
-  	  <th>IMG</th>
-  	  <th>Name</th>
-  	  <th>Score</th>
-  	</tr>
-  	{% for product in products %}
-  	<tr>
-  	  <td><img src="/static/placeholder.jpg" alt="{{ product.name }}"  height="42" width="42"/></td>
-  	  <td><a href="{{ url_for('show_product', category=category.lower(), pid=product.id) }}">
-      {{ product.name }}</a></td>
-      
-  	  <td>{{ product.superscore }}</td>
-      
-  	</tr>
-  	{% endfor %}
-  </table>
-</center>
-
+    <center>
+        <form action="">
+            # of products:
+            <select name="show" onchange="this.form.submit();">
+                <option value="10" {% if show == "10" %} selected="selected"{% endif %}>10</option>
+                <option value="20" {% if show == "20" %} selected="selected"{% endif %}>20</option>
+                <option value="50" {% if show == "50" %} selected="selected"{% endif %}>50</option>
+                <option value="100" {% if show == "100" %} selected="selected"{% endif %}>100</option>
+            </select>
+            Order by:
+            <select name="orderby" onchange="this.form.submit();">
+                <option value="superscore" {% if orderby == "superscore" %} selected="selected"{% endif %}>Super Score</option>
+                <option value="name" {% if orderby =="name" %} selected="selected"{% endif %}>Name</option>
+                <option value="newest_review_date" {% if orderby == "newest_review_date" %} selected="selected"{% endif %}>Newest Review Date</option>
+            </select>
+            Order:
+            <label>
+                <input type="radio" name="order" value="desc" onChange="this.form.submit();" {% if order  == "desc" %}checked="checked"{% endif %}/> Desc
+            </label>
+            <label>
+                <input type="radio" name="order" value="asc" onChange="this.form.submit();" {% if order == "asc" %}checked="checked"{% endif %}/> Asc
+            </label>
+        </form>
+    </center>
+    <center>
+        <h2> Category: {{ category.title() }} </h2>
+    </center>
+    <center>
+        <table class="product-list">
+            <tr>
+                <th>IMG</th>
+                <th>Name</th>
+                <th>Score</th>
+            </tr>
+            {% for product in products %}
+                <tr>
+                    <td><img src="/static/placeholder.jpg" alt="{{ product.name }}"  height="42" width="42"/></td>
+                    <td><a href="{{ url_for('show_product', category=category.lower(), pid=product.id) }}">
+                        {{ product.name }}</a></td>
+                    <td>{{ product.superscore }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </center>
 {% endblock %}

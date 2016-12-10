@@ -1,83 +1,93 @@
 {% extends "base.html" %}
 {% block content %}
-  <h2> Category: {{ category }} </h2>
-  <h3>{{ product.name }}</h3>
-<center>
-<img src="/static/placeholder.jpg" alt="{{ product.name }}"  height="75" width="75"/>
-{%  if category == "Cpu" %}
-    <table class="specifications">
-        <tr>
-            <th>Series:</th>
-            <td>{{ product.cpu_series }}</td>
-        </tr>
-        <tr>
-            <th>Model:</th>
-            <td>{{  product.model }}</td>
-        </tr>
-        <tr>
-            <th>Clock:</th>
-            <td>{{ product.clock }}</td>
-        </tr>
-        <tr>
-            <th>Max Turbo:</th>
-            <td>{{ product.max_turbo }}</td>
-        </tr>
-        <tr>
-            <th>Int. GPU:</th>
-            <td>{{ product.integrated_gpu }}</td>
-        </tr>
-        <tr>
-            <th>Physical Cores:</th>
-            <td>{{ product.physical_cores }}</td>
-        </tr>
-        <tr>
-            <th>Logical Cores:</th>
-            <td>{{ product.logical_cores }}</td>
-        </tr>
-    </table>
-{%  elif category == "Gpu" %}
-    <table class="specifications">
-        <tr>
-            <th>Proc. Manufacturer:</th>
-            <td>{{  product.processor_manufacturer }}</td>
-        </tr>
-        <tr>
-            <th>Manufacturer:</th>
-            <td>{{  product.manufacturer }}</td>
-        </tr>
-        <tr>
-            <th>Model:</th>
-            <td>{{  product.model }}</td>
-        </tr>
-        <tr>
-            <th>Graphic Processor:</th>
-            <td>{{ product.graphic_processor }}</td>
-        </tr>
-        <tr>
-            <th>Memory:</th>
-            <td>{{ product.mem_size }}</td>
-        </tr>
-    </table>
-{%  endif %}
+    <h2 class="sub-title"> Category: {{ category }} </h2>
+    <h3 class="sub-title">{{ product.name }}</h3>
 
-    <table class="scores" border="1px">
-        <tr>
-            <td colspan="2">Super: {{ product.superscore }}</td>
-        </tr>
-        <tr>
-            <td>Avg. Critic: {{ product.avg_critic_score }}</td>
-            <td>Avg. User: {{ product.avg_user_score }}</td>
-        </tr>
-    </table>
-    <table class="review_dates">
-      <tr>
-        <th>Newest review date:</th>
-        <td>{{ product.newest_review_date }}</td>
-      </tr>
-      <tr>
-        <th>Oldest review date:</th>
-        <td>{{ product.oldest_review_date }}</td>
-      </tr>
-</center>
-
+    <div class="container margin-topbot">
+        <div class="row">
+            <div class="col-xs-5 center-block">
+                <div class="col-xs-12">
+                    <div class="col-xs-6 col-xs-offset-1">
+                        <img src="/static/placeholder.jpg" alt="{{ product.name }}" class="img-responsive"/>
+                    </div>
+                </div>
+                {%  if category == "Cpu" %}
+                    <table class="specifications col-xs-11 col-xs-offset-1 text-center">
+                        <tr>
+                            <th>Series:</th>
+                            <td>{{ product.cpu_series }}</td>
+                        </tr>
+                        <tr>
+                            <th>Model:</th>
+                            <td>{{  product.model }}</td>
+                        </tr>
+                        <tr>
+                            <th>Clock:</th>
+                            <td>{{ product.clock }}</td>
+                        </tr>
+                        <tr>
+                            <th>Max Turbo:</th>
+                            <td>{{ product.max_turbo }}</td>
+                        </tr>
+                        <tr>
+                            <th>Int. GPU:</th>
+                            <td>{{ product.integrated_gpu }}</td>
+                        </tr>
+                        <tr>
+                            <th>Physical Cores:</th>
+                            <td>{{ product.physical_cores }}</td>
+                        </tr>
+                        <tr>
+                            <th>Logical Cores:</th>
+                            <td>{{ product.logical_cores }}</td>
+                        </tr>
+                    </table>
+                {%  elif category == "Gpu" %}
+                    <table class="specifications col-xs-11 col-xs-offset-1 text-center"">
+                    <tr>
+                        <th>Proc. Manufacturer:</th>
+                        <td>{{  product.processor_manufacturer }}</td>
+                    </tr>
+                    <tr>
+                        <th>Manufacturer:</th>
+                        <td>{{  product.manufacturer }}</td>
+                    </tr>
+                    <tr>
+                        <th>Model:</th>
+                        <td>{{  product.model }}</td>
+                    </tr>
+                    <tr>
+                        <th>Graphic Processor:</th>
+                        <td>{{ product.graphic_processor }}</td>
+                    </tr>
+                    <tr>
+                        <th>Memory:</th>
+                        <td>{{ product.mem_size }}</td>
+                    </tr>
+                    </table>
+                {%  endif %}
+            </div>
+            <div class="col-xs-4 col-xs-offset-1">
+                <table class="scores col-xs-12 text-center" border="1px">
+                    <tr>
+                        <td colspan="2">Super: {{ product.superscore }}</td>
+                    </tr>
+                    <tr>
+                        <td>Avg. Critic: {{ product.avg_critic_score }}</td>
+                        <td>Avg. User: {{ product.avg_user_score }}</td>
+                    </tr>
+                </table>
+                <table class="review_dates col-xs-10 text-center">
+                    <tr>
+                        <th>Newest review date:</th>
+                        <td>{{ product.newest_review_date }}</td>
+                    </tr>
+                    <tr>
+                        <th>Oldest review date:</th>
+                        <td>{{ product.oldest_review_date }}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
 {% endblock %}

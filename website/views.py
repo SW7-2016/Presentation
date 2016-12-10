@@ -3,7 +3,6 @@ from flask import render_template, request, abort
 from website import app, models, db
 import sys
 
-
 from .models import Cpu, Gpu, Review
 cat_list = ["Cpu", "Gpu"]
 
