@@ -72,7 +72,7 @@ ul > li > p:hover, p:focus, p:visited, a:hover, a:focus, a:visited {
   color: #000;
 }
 
-.product-list, .specifications tr:nth-child(even) {
+.product-list tr:nth-child(even), .specifications tr:nth-child(even) {
     background-color: #e6e6e6;
 }
 
