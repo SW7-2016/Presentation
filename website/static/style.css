@@ -100,3 +100,11 @@ ul > li > p:hover, p:focus, p:visited, a:hover, a:focus, a:visited {
 .scores td {
   padding: 5px;
 }
+
+.super-score {
+  font-weight: bold;
+}
+
+.review-dates {
+  margin-top: 12px;
+}
