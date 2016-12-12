@@ -80,6 +80,13 @@ ul > li > p:hover, p:focus, p:visited, a:hover, a:focus, a:visited {
 .product-list tr:nth-child(even), .specifications tr:nth-child(even) {
     background-color: #e6e6e6;
 }
+.product-list tr:hover {
+  background-color: #a3a3a3;
+}
+
+.product-list-head th, th:hover {
+  background-color: #d3d3d3;
+}
 
 .right-padding {
   width: 34px;
