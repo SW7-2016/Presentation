@@ -84,7 +84,7 @@ ul > li > p:hover, p:focus, p:visited, a:hover, a:focus, a:visited {
   background-color: #a3a3a3;
 }
 
-.product-list-head th, th:hover {
+.product-list-head th {
   background-color: #d3d3d3;
 }
 
