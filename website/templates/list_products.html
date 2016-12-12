@@ -33,7 +33,7 @@
                 <th class="text-center right-padding">#</th>
                 <th>IMG</th>
                 <th>Name</th>
-                <th>Score</th>
+                <th class="text-center">Score</th>
             </tr>
             {% for product in products %}
                 <tr>
@@ -41,7 +41,7 @@
                     <td><img src="/static/placeholder.jpg" alt="{{ product.name }}"  height="42" width="42"/></td>
                     <td><a href="{{ url_for('show_product', category=category.lower(), pid=product.id) }}">
                         {{ product.name }}</a></td>
-                    <td>{{ product.superscore }}</td>
+                    <td class="text-center">{{ product.superscore }}</td>
                 </tr>
             {% endfor %}
         </table>
