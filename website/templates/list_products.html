@@ -30,12 +30,14 @@
     <center>
         <table class="product-list">
             <tr>
+                <th class="text-center right-padding">#</th>
                 <th>IMG</th>
                 <th>Name</th>
                 <th>Score</th>
             </tr>
             {% for product in products %}
                 <tr>
+                    <td class="text-center right-padding">{{ loop.index }}</td>
                     <td><img src="/static/placeholder.jpg" alt="{{ product.name }}"  height="42" width="42"/></td>
                     <td><a href="{{ url_for('show_product', category=category.lower(), pid=product.id) }}">
                         {{ product.name }}</a></td>

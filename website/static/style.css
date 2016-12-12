@@ -59,12 +59,17 @@ ul > li > p:hover, p:focus, p:visited, a:hover, a:focus, a:visited {
 }
 
 .product-list {
-  position: relative;
+  border-collapse: collapse;
   margin: 1em 0;
-  min-width: 600px;
+  min-width: 75%;
 }
 .product-list td th {
   text-align: left;
+}
+
+.product-list td {
+  padding-top: .25em;
+  padding-bottom: .25em;
 }
 
 .product-list a, a:visited {
@@ -74,6 +79,10 @@ ul > li > p:hover, p:focus, p:visited, a:hover, a:focus, a:visited {
 
 .product-list tr:nth-child(even), .specifications tr:nth-child(even) {
     background-color: #e6e6e6;
+}
+
+.right-padding {
+  width: 34px;
 }
 
 .specifications {

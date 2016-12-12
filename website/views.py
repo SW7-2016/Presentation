@@ -16,11 +16,12 @@ def index():
 @app.route('/category/<category>')
 def list_items(category):
 
-    showing = request.args.get('show', 10)
-    orderby = request.args.get('orderby', "superscore")
-    order = request.args.get('order', "desc")
-    order_direction = getattr(db, order)
     try:
+        showing = request.args.get('show', 10)
+        orderby = request.args.get('orderby', "superscore")
+        order = request.args.get('order', "desc")
+        order_direction = getattr(db, order)
+
         # Gets the class module depending on the category chosen.
         cat_que = getattr(sys.modules[__name__], category.title())
         products = db.session.query(cat_que).order_by(order_direction(orderby)).limit(showing).all()
@@ -35,9 +36,13 @@ def list_items(category):
 @app.route('/category/<category>/<pid>')
 def show_product(category, pid):
 
-    cat_que = getattr(sys.modules[__name__], category.title())
-    single_product = db.session.query(cat_que).filter(cat_que.id == pid).first()
-    return render_template('single_product.html', category=category.title(), product=single_product)
+    try:
+        cat_que = getattr(sys.modules[__name__], category.title())
+        single_product = db.session.query(cat_que).filter(cat_que.id == pid).first()
+        return render_template('single_product.html', category=category.title(), product=single_product)
+    except Exception as e:
+        print(str(e), file=sys.stderr)
+        abort(404)
 
 
 @app.errorhandler(404)
