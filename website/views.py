@@ -25,7 +25,7 @@ def list_items(category):
         # Gets the class module depending on the category chosen.
         cat_que = getattr(sys.modules[__name__], category.title())
         products = db.session.query(cat_que).order_by(order_direction(orderby)).limit(showing).all()
-        return render_template('list_products.html', products=products, category
+        return render_template('list_products.html', cat_list=cat_list,  products=products, category
                                =category, show=showing, orderby=orderby,
                                order=order)
     except Exception as e:
@@ -39,7 +39,7 @@ def show_product(category, pid):
     try:
         cat_que = getattr(sys.modules[__name__], category.title())
         single_product = db.session.query(cat_que).filter(cat_que.id == pid).first()
-        return render_template('single_product.html', category=category.title(), product=single_product)
+        return render_template('single_product.html', cat_list=cat_list, category=category.title(), product=single_product)
     except Exception as e:
         print(str(e), file=sys.stderr)
         abort(404)
