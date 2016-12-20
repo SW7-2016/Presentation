@@ -7,7 +7,7 @@ class BaseConfig(object):
     HOST = '0.0.0.0'
     PORT = 9000
     # SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'app.db')
-    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:Kaffe23!@localhost/analyserdb'
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://USER:PASS@localhost/analyserdb'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 class DevelopmentConfig(BaseConfig):
